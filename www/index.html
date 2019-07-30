@@ -8,14 +8,15 @@
         $("#insert").click(function() {
 		
             var Id      =$("#Id").val();
+             var nama_pembeli      =$("#nama_pembeli").val();
             var nama_barang      =$("#nama_barang").val();
             var unit       =$("#unit").val();
             var harga           =$("#harga").val();
            var jumlah          =$("#jumlah").val();
  
             
- var dataString="nama_barang=" +nama_barang+ "&unit=" +unit+ "&harga=" +harga+  "&jumlah=" +jumlah+"&insert=";
- if( $.trim(nama_barang).length>0 & $.trim(unit).length>0  & $.trim(harga).length>0 & $.trim(jumlah).length>0)
+ var dataString="nama_pembeli=" +nama_pembeli+ "nama_barang=" +nama_barang+ "&unit=" +unit+ "&harga=" +harga+  "&jumlah=" +jumlah+"&insert=";
+ if( $.trim(nama_pembeli).length>0 & $.trim(nama_barang).length>0 & $.trim(unit).length>0  & $.trim(harga).length>0 & $.trim(jumlah).length>0)
  {
                 $.ajax({
                     type: "POST",
@@ -52,7 +53,11 @@
 
  <div class="list">
       <input type="hidden" id="Id" value="" />
-<div class="item">
+      <div class="item">
+            <label>Nama Pembeli</label>
+            <input type="text" id="nama_pembeli" value="" />
+            </div>
+    <div class="item">
             <label>Nama Barang</label>
             <input type="text" id="nama_barang" value="" />
         </div>
