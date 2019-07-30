@@ -8,22 +8,25 @@
     <script type="text/javascript">
     $(document).ready(function() {
         var Id = decodeURI(getUrlVars()["Id"]);
+         var nama_pembeli = decodeURI(getUrlVars()["nama_pembeli"]);
         var nama_barang = decodeURI(getUrlVars()["nama_barang"]);
         var unit = decodeURI(getUrlVars()["unit"]);
         var harga = decodeURI(getUrlVars()["harga"]);
 		var jumlah = decodeURI(getUrlVars()["jumlah"]);
         $("#Id").val(Id);
+        $("#nama_pembeli").val(nama_pembeli);
         $("#nama_barang").val(nama_barang);
         $("#unit").val(unit);
         $("#harga").val(harga);
 		$("#jumlah").val(jumlah);
         $("#update").click(function() {
             var Id = $("#Id").val();
+            var nama_pembeli= $("#nama_pembeli").val();
             var nama_barang= $("#nama_barang").val();
             var unit = $("#unit").val();
             var harga = $("#harga").val();
 			var jumlah = $("#jumlah").val();
-            var dataString = "Id=" + Id + "&nama_barang=" + nama_barang + "&unit=" + unit + "&harga=" + harga + "&jumlah=" + jumlah +"&update=";
+            var dataString = "Id=" + Id + "&nama_pembeli=" + nama_pembeli + "&nama_barang=" + nama_barang + "&unit=" + unit + "&harga=" + harga + "&jumlah=" + jumlah +"&update=";
             $.ajax({
                 type: "POST",
                 url: "https://tugasluhur.000webhostapp.com/cordova/www/update.php",
@@ -81,6 +84,10 @@
     <br/>
     <div class="list">
         <input type="hidden" id="Id" value="" />
+        <div class="item">
+            <label>Nama Pembeli</label>
+            <input type="text" id="nama_pembeli" value="" />
+        </div>
                 <div class="item">
             <label>Nama Barang</label>
             <input type="text" id="nama_barang" value="" />
